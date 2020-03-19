@@ -3,6 +3,7 @@
 # This script has been created based on the instructions at
 # https://devdocs.jabref.org/getting-into-the-code/guidelines-for-setting-up-a-local-workspace
 # and the output of `./gradlew -d run`.
+# The module-path has been simplified and augmented by the system JavaFX libraries.
 
 JRE=java-13-openjdk
 ROOT=/usr/share/java/jabref
@@ -33,7 +34,7 @@ ROOT=/usr/share/java/jabref
 --add-opens javafx.base/com.sun.javafx.binding=com.jfoenix \
 --add-opens javafx.graphics/com.sun.javafx.stage=com.jfoenix \
 --add-opens javafx.base/com.sun.javafx.event=com.jfoenix \
---module-path ${ROOT}/lib \
+--module-path ${ROOT}/lib:/usr/lib/jvm/${JRE}/lib/javafx.base.jar:/usr/lib/jvm/${JRE}/lib/javafx.controls.jar:/usr/lib/jvm/${JRE}/lib/javafx.fxml.jar:/usr/lib/jvm/${JRE}/lib/javafx.graphics.jar:/usr/lib/jvm/${JRE}/lib/javafx.media.jar:/usr/lib/jvm/${JRE}/lib/javafx.swing.jar:/usr/lib/jvm/${JRE}/lib/javafx.web.jar \
 --add-modules javafx.controls,javafx.fxml,javafx.swing,javafx.web \
 --module org.jabref/org.jabref.JabRefLauncher \
 "$@"
